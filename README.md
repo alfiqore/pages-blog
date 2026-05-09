@@ -1,5 +1,5 @@
 # Pages — A Simple Blog
-
+![screenshot](public/screenshots/image.png)
 A minimalist blog application built with Node.js and Express as a capstone project for learning full-stack web development.
 
 ## Features
