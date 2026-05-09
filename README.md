@@ -46,7 +46,7 @@ A minimalist blog application built with Node.js and Express as a capstone proje
 ### Installation
 
 ```bash
-git clone https://github.com/username/nama-repo.git
+git clone https://github.com/alfiqore/pages-blog.git
 cd nama-repo
 npm install
 ```
