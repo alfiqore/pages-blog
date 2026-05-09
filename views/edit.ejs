@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit post — Pages</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="site-title">Pages</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="page-heading">
+        <h1>Edit post</h1>
+        <p>Update your post, or delete it if you've changed your mind.</p>
+      </div>
+
+      <form class="form" action="/edit/<%= post.id %>" method="POST">
+        <div class="form-field">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value="<%= post.title %>"
+            required
+          />
+        </div>
+        <div class="form-field">
+          <label for="content">Content</label>
+          <textarea id="content" name="content" required>
+<%= post.content %></textarea
+          >
+        </div>
+        <div class="form-actions">
+          <form action="/delete/<%= post.id %>" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+          <div class="right-group">
+            <a href="/post/<%= post.id %>" class="btn btn-ghost">Cancel</a>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>

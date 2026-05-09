@@ -1,0 +1,36 @@
+<%- include("partials/header.ejs") %>
+    <!-- ================= Main content ================= -->
+    <main class="container">
+      <div class="page-heading">
+        <h1>Your posts</h1>
+        <p>Everything you've written, in one place.</p>
+      </div>
+
+      <!-- A list of post previews. Each card links to the full post. -->
+      <ul class="post-list">
+        <!-- Post 1 -->
+         <% posts.forEach(post => { %>
+          <li class="post-card">
+            <p class=""post-card-meta> <%= post["date"] %> </p>
+            <h2><a href="/post/<%= post["id"] %>"> <%= post["title"] %></a></h2>
+            <p class="post-card-excerpt">
+              <%= post["content"] %>
+            </p>
+            <div class="post-card-actions">
+              <a href="/post/<%= post["id"] %>">Read</a>
+              <span>·</span>
+              <a href="/edit/<%= post["id"]%>">Edit</a>
+              <span>·</span>
+              <!-- <a href="/delete/<%=post["id"]%>">Delete</a> -->
+              <form action="/delete/<%= post["id"] %>" method="POST">
+                <button type="submit" class="btn-link">Delete</button>
+              </form>
+          </div>
+          </li>
+         <% }); %>
+      </ul>
+    </main>
+
+    <!-- ================= Footer ================= -->
+     <%- include("partials/footer.ejs") %>
+  </body>

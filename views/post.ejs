@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+  <!-- Main: the single post -->
+  <main class="container">
+    <article class="post-article">
+
+      <p class="post-meta"><%= post["date"] %></p>
+      <h1> <%= post["title"] %></h1>
+
+      <div class="post-body">
+        <p><%- post["content"].replace(/\n/g, "<br>") %></p>
+        
+      </div>
+
+      <!-- Edit / delete actions for this post -->
+      <div class="post-toolbar">
+        <a href="/edit/<%= post["id"] %>" class="btn btn-ghost">Edit</a>
+        <form action="/delete/<%= post.id %>" method="POST">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+
+    </article>
+  </main>
+
+<%- include("partials/footer.ejs") %>
